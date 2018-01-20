@@ -33,3 +33,5 @@ echo "<br>";
 $num1 = 3;
 $num2 = 5;
 echo soma2($num1,$num2);
+
+//teste
