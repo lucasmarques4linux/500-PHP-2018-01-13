@@ -10,27 +10,39 @@ if (!empty($_POST)) {
 		$altura = (float) filter_input(INPUT_POST,'altura');
 	}
 
-	$math = $peso / ($altura * $altura);
-	$imc  = round($math, 2);
 
-	if($imc <= 17){
-		echo 'Muito abaixo do peso.';
+	function calculaImc($peso, $altura){
+		
+		$imc = $peso / ($altura * $altura);
+		return $imc;
+	}
+	function exibe($imc){
+		if($imc <= 17){
+		return 'Muito abaixo do peso.';
 	}elseif($imc < 18.49){
-		echo 'Abaixo do peso.';
+		return 'Abaixo do peso.';
 	}elseif($imc <= 24.99){
-		echo 'Peso normal.';
+		return 'Peso normal.';
 
 	}elseif($imc <= 29.99){
-		echo 'Acima do peso.';
+		return 'Acima do peso.';
 
 	}elseif($imc <= 34.99){
-		echo 'Obesidade I.';
+		return 'Obesidade I.';
 
 	}elseif($imc <= 39.99){
-		echo 'Obesidade II (severa).';
+		return 'Obesidade II (severa).';
 
 	}elseif($imc > 40){
-		echo 'Obesidade III (mórbida).';
+		return 'Obesidade III (mórbida).';
 	}
+	}
+
+
+	$imc = round(calculaImc($peso, $altura),2);
+
+	$msg = exibe($imc);
+
+	echo $msg;
 
 }
