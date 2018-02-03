@@ -7,6 +7,8 @@
 	index.php
 	edit.php
 	new.php
+	_header.php
+	_footer.php
 ```
 ---
 conexao.php
