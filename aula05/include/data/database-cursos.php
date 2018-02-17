@@ -66,3 +66,14 @@ SQL;
 
 	desconecta($con);
 }
+
+function deletaCurso(int $id){
+
+	$con = conecta();
+
+	$sql = "DELETE FROM tb_cursos WHERE id = {$id}";
+
+	pg_query($sql);
+
+	desconecta($con);
+}
